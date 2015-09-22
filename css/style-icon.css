@@ -1,0 +1,100 @@
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-1:before {
+	content: "\e600";
+}
+.icon-2:before {
+	content: "\e601";
+}
+.icon-3:before {
+	content: "\e602";
+}
+.icon-4:before {
+	content: "\e603";
+}
+.icon-basket:before {
+	content: "\e604";
+}
+.icon-bicycle:before {
+	content: "\e605";
+}
+.icon-club:before {
+	content: "\e606";
+}
+.icon-cup-in-circle:before {
+	content: "\e607";
+}
+.icon-hands:before {
+	content: "\e608";
+}
+.icon-horeca:before {
+	content: "\e609";
+}
+.icon-line-big:before {
+	content: "\e60a";
+}
+.icon-line-small-w:before {
+	content: "\e60b";
+}
+.icon-list:before {
+	content: "\e60c";
+}
+.icon-magazin:before {
+	content: "\e60d";
+}
+.icon-magazin-withe:before {
+	content: "\e60e";
+}
+.icon-map:before {
+	content: "\e60f";
+}
+.icon-rock:before {
+	content: "\e610";
+}
+.icon-samile:before {
+	content: "\e611";
+}
+.icon-samile-big:before {
+	content: "\e612";
+}
+.icon-samile-school:before {
+	content: "\e613";
+}
+.icon-samile-school-w:before {
+	content: "\e614";
+}
+.icon-search:before {
+	content: "\e615";
+}
+.icon-tit .path1:before {
+	content: "\e616";
+	color: rgb(255, 255, 255);
+}
+.icon-tit .path2:before {
+	content: "\e617";
+	margin-left: -1.67578125em;
+	color: rgb(92, 102, 112);
+}
+.icon-tit .path3:before {
+	content: "\e618";
+	margin-left: -1.67578125em;
+	color: rgb(92, 102, 112);
+}
+.icon-tit .path4:before {
+	content: "\e619";
+	margin-left: -1.67578125em;
+	color: rgb(92, 102, 112);
+}

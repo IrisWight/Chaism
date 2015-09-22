@@ -1,0 +1,44 @@
+@import "compass";
+
+@include font-face("Calibri",
+		font-files("Calibri.ttf", "Calibri.woff", "Calibri.eot"));
+
+@include font-face("Calibri-Bold",
+		font-files("Calibri-Bold.ttf", "Calibri-Bold.woff", "Calibri-Bold.eot"));
+
+@include font-face("Calibri-BoldItalic",
+		font-files("Calibri-BoldItalic.ttf", "Calibri-BoldItalic.woff", "Calibri-BoldItalic.eot"));
+
+@include font-face("Calibri-Italic",
+		font-files("Calibri-Italic.ttf", "Calibri-Italic.woff", "Calibri-Italic.eot"));
+
+@include font-face("Calibri-Light",
+		font-files("Calibri-Light.ttf", "Calibri-Light.woff", "Calibri-Light.eot"));
+
+@include font-face("Calibri-LightItalic",
+		font-files("Calibri-LightItalic.ttf", "Calibri-LightItalic.woff", "Calibri-LightItalic.eot"));
+
+
+@include font-face("Opium",
+		font-files("Opium.ttf", "Opium.woff", "Opium.eot"));
+
+@include font-face("Opium-Bold",
+		font-files("Opium-Bold.ttf", "Opium-Bold.woff", "Opium-Bold.eot"));
+
+@include font-face("Opium-BoldItalic",
+		font-files("Opium-BoldItalic.ttf", "Opium-BoldItalic.woff", "Opium-BoldItalic.eot"));
+
+@include font-face("Opium-Italic",
+		font-files("Opium-Italic.ttf", "Opium-Italic.woff", "Opium-Italic.eot"));
+
+@font-face {
+  font-family: 'icomoon';
+  src:url('../fonts/icomoon.eot?-3xy0f2');
+  src:url('../fonts/icomoon.eot?#iefix-3xy0f2') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf?-3xy0f2') format('truetype'),
+  url('../fonts/icomoon.woff?-3xy0f2') format('woff'),
+  url('../fonts/icomoon.svg?-3xy0f2#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+

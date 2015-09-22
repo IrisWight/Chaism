@@ -1,0 +1,384 @@
+@import "base";
+@import "compass";
+@import "fonts";
+
+// SHORT HOWTO
+// =======Sprites
+// .whatever{
+// 	@include sized-sprite($icons, badge_hit);
+// 	@include retina{
+// 		@include sized-sprite($icons, badge_new);
+// 	}
+// }
+// =======animation example
+// @include keyframes(rotate) {
+//    from {
+//       @include rotate(0);
+//    }
+//    to {
+//       @include rotate(360);
+//    }
+// }
+// =======animation usage
+// body:hover{
+// 	@include animation(rotate 200s linear infinite);
+// }
+// =======gradient example
+// body{
+// @include background-image(linear-gradient(#232323, #5c5c5c));
+// }
+// =======making bw-images
+// img{@extend %gray;}
+// BTW these comments will not render into css
+
+/* --------------- reset.css --------------- */
+
+// @font-face {
+// 	font-family: "FixFont";
+// 	src: url();
+// }
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, em, img, strong, sub, sup, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, table, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+a {
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	background: transparent;
+	text-decoration: none;
+	color: #666;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td, td img {
+	vertical-align: middle;
+}
+
+input, select, button, textarea {
+	margin: 0;
+	font-size: 100%;
+	color: #666;
+}
+
+input[type="checkbox"] {
+	vertical-align: bottom;
+}
+
+input[type="radio"] {
+	vertical-align: text-bottom;
+}
+
+sub {
+	vertical-align: sub;
+	font-size: smaller;
+}
+
+sup {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+
+/* --------------- /reset.css --------------- */
+
+.clearfix:before, .clearfix:after {
+	content: " ";
+	display: block;
+	height: 0;
+	visibility: hidden;
+    clear: both;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+body {
+	position: relative;
+}
+
+label, input[type="button"], input[type="submit"], button {
+	cursor: pointer;
+}
+
+ul{
+  list-style: none;
+}
+
+
+//   VAR
+
+$Calibri: Calibri, Arial, sans-serif;
+$Calibri-B: Calibri-Bold, Arial, sans-serif;
+$Calibri-BI: Calibri-BoldItalic, Arial, sans-serif;
+$Calibri-I: Calibri-Italic, Arial, sans-serif;
+$Calibri-L: Calibri-Light, Arial, sans-serif;
+$Calibri-LI: Calibri-LightItalic, Arial, sans-serif;
+
+$Opium: Opium, Arial, sans-serif;
+$Opium-B: Opium-Bold, Arial, sans-serif;
+$Opium-BI: Opium-BoldItalic, Arial, sans-serif;
+$Opium-I: Opium-Italic, Arial, sans-serif;
+
+$red: #cc2f3c;
+$white: #fff;
+$gray: #5c6670;
+
+
+//    h1
+
+@mixin h1{
+  color: $gray;
+  font-family: $Opium;
+  font-size: 46px;
+  line-height: 54px;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  @include respond-to(mobile){
+	font-size: 18px;
+	line-height: 22px;
+  }
+}
+
+//  p
+
+@mixin p{
+  font-family: $Opium;
+  font-size: 18px;
+  line-height: 26px;
+  color: $gray;
+  text-align: center;
+  letter-spacing: .02em;
+  @include respond-to(mobile){
+	font-size: 14px;
+	line-height: 18px;
+  }
+}
+
+
+//   BTN
+
+@mixin btn-square{
+  display: inline-block;
+  position: relative;
+  color: $white;
+  font-family: $Calibri-L;
+  height: 45px;
+  font-size: 18px;
+  line-height: 45px;
+  letter-spacing: 1px;
+  padding: 0 17px;
+  border-right: 1px solid $white;
+  border-left: 1px solid $white;
+  @include transition(all, .2s, linear);
+  &:after, &:before{
+	content: ' ';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 7px;
+	height: 43px;
+	border-top: 1px solid $white;
+	border-bottom: 1px solid $white;
+  }
+  &:after{
+	left: 100%;
+	margin-left: -7px;
+  }
+  &:hover{
+	padding: 0 13px;
+	@include transition(all, .1s, linear);
+  }
+  &:hover{
+	background: $white;
+	color: $gray;
+	@include transition(all, .3s, linear);
+	@include transition-delay(.2s);
+  }
+  &:active{
+	background: none;
+	color: $white;
+	border: 1px solid $white;
+	&:before{
+	  display: none;
+	}
+	&:after{
+	  display: none;
+	}
+  }
+}
+
+@mixin pop-up-close{
+  position: absolute;
+  top: 0;
+  right: -46px;
+  width: 45px;
+  height: 45px;
+  background: $red;
+  &:after, &:before{
+	content: ' ';
+	display: block;
+	height: 1px;
+	width: 25px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -13px;
+	@include background(linear-gradient(to left, rgba(255, 255, 255, 0) 0%,
+			$white 15%, $white 85%,
+			rgba(255, 255, 255, 0) 100%));
+	@include transform(rotate(45deg));
+  }
+  &:before{
+	@include transform(rotate(-45deg));
+  }
+  &:hover{
+	background: $gray;
+	@include transition(all, .2s, linear);
+  }
+  @include respond-to(mobile){
+	top: 0;
+	right: 0;
+  }
+}
+
+@mixin btn-submit {
+  border: 1px solid $red;
+  background: $red;
+  color: $white;
+  font-family: $Calibri-B;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 45px;
+  height: 45px;
+  width: 318px;
+  display: block;
+  text-align: center;
+  &:hover{
+	background: $white;
+	color: $gray;
+	@include transition(all, .2s, linear);
+  }
+}
+
+//    bubble
+
+@mixin bubble{
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+}
+
+@mixin line{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%,-50%));
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  &:before, &:after{
+	content: ' ';
+	display: block;
+	width: 80px;
+	height: 1px;
+	position: absolute;
+	top: 3px;
+  }
+  &:before{
+	right: -84px;
+  }
+  &:after{
+	left: -84px;
+  }
+}
+
+@mixin arrow-scroll{
+  position: absolute;
+  top: 50%;
+  @include transform(translateY(-50%));
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  border: 1px solid $white;
+  cursor: pointer;
+  @include transition(all,.3s,linear);
+  span{
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include transform(translate(-50%,-50%));
+  }
+}
+
+@mixin by-this{
+  width: 194px;
+  height: 194px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%,-50%));
+  @include respond-to(tablet){
+	top: 380px;
+	border-radius: 0;
+  }
+  @include respond-to(mobile){
+	top: 380px;
+	border-radius: 0;
+  }
+  .buy__i{
+	padding: 46px 35px 27px;
+	@include respond-to(mobile){
+	  padding: 0;
+	}
+	.title{
+	  padding-bottom: 30px;
+	  @include respond-to(tablet){
+		padding-bottom: 5px;
+	  }@include respond-to(mobile){
+		padding-bottom: 5px;
+	  }
+	  p{
+		font-family: $Opium;
+		span{
+		  text-transform: uppercase;
+		}
+	  }
+	}
+	.price{
+	  p{
+		font-family: $Opium;
+		strong{
+		  font-family: $Opium-B;
+		}
+	  }
+	}
+  }
+}
+
+@mixin table-line{
+	position: absolute;
+	top: 10%;
+	content: ' ';
+	display: block;
+	height: 80%;
+	width: 1px;
+	z-index: 1;
+	@include background(linear-gradient(to top, rgba(255, 255, 255, 0) 0%,
+			#dadada 10%, #dadada 90%,
+			rgba(255, 255, 255, 0) 100%));
+}
